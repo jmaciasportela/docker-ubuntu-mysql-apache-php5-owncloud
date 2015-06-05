@@ -18,7 +18,7 @@ RUN echo "root:root" | chpasswd
 # Enable ssh for root
 RUN sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/' /etc/ssh/sshd_config
 # Enable this option to prevent SSH drop connections
-RUN printf "ServerAliveInterval 15\\nServerAliveCountMax 8" >> /etc/ssh/sshd_config
+RUN printf "ClientAliveInterval 15\\nClientAliveCountMax 8" >> /etc/ssh/sshd_config
 
 #Setup environment
 ENV OC_URL http://download.owncloud.org/community/owncloud-daily-master.tar.bz2
