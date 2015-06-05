@@ -41,7 +41,7 @@ RUN sed -i 's/;default_charset = "UTF-8"/default_charset = "UTF-8"/g' /etc/php5/
 
 #Enable Xdebug
 # Added for xdebug
-RUN printf "zend_extension=\"/usr/lib/php5/20121212/xdebug.so\"\\nxdebug.remote_enable=1\\nxdebug.remote_handler=dbgp\\nxdebug.remote_mode=req\\nxdebug.remote_host=0.0.0.0\\nxdebug.remote_port=9000"
+RUN printf "xdebug.remote_enable=1\\nxdebug.remote_handler=dbgp\\nxdebug.remote_mode=req\\nxdebug.remote_host=0.0.0.0\\nxdebug.remote_port=9000" >> /etc/php5/mods-available/xdebug.ini
 
 # Install mysql-server with default password for root -> owncloud
 RUN echo 'mysql-server-5.5 mysql-server/root_password  password owncloud' | debconf-set-selections
